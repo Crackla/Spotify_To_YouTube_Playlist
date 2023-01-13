@@ -21,7 +21,7 @@ def get_authenticated_service():
     else:
         flow = google_auth_oauthlib.flow.InstalledAppFlow.from_client_secrets_file(client_secrets_file, scopes)
         credentials = flow.run_local_server()
-        with open("", "wb") as f:
+        with open("Save_Credentials", "wb") as f:
             pickle.dump(credentials, f)
     return googleapiclient.discovery.build(
         api_service_name, api_version, credentials=credentials)
